@@ -1,0 +1,85 @@
+/* color */
+$brand-primary: #D20068  !default;
+$brand-hover: #261D12 !default;
+$brand-bg:#303030 !default;
+$grey100: #000000 !default;
+$grey80: #221D1B !default;
+$grey60: #616161 !default;
+$grey70: #414142 !default;
+$grey50: #2E294E !default;
+$grey40: #7C7C7C !default;
+$grey20: #ACBDBA !default;
+$grey10: #CDDDDD !default;
+$grey5: #FCFCFC !default;
+$white: #FFFFFF !default;
+$red: #ee3524 !default;
+
+$red-hover: #f04436 !default;
+
+
+
+
+/* font-size */
+/* h1 */
+$h1: 82px !default;
+$h1-big: 78px !default;
+$h1-lg: 72px !default;
+$h1-md: 58px !default;
+$h1-sm: 40px !default;
+$h1-xs: 28px !default;
+
+
+/* h2 */
+$h2: 60px !default;
+$h2-big: 60px !default;
+$h2-lg: 42px !default;
+$h2-md: 38px !default;
+$h2-sm: 28px !default;
+$h2-xs: 28px !default;
+/* h3 */
+$h3: 42px !default;
+$h3-big: 42px !default;
+$h3-lg: 32px !default;
+$h3-md: 22px !default;
+$h3-sm: 18px !default;
+$h3-xs: 18px !default;
+/* h4 */
+$h4: 28px !default;
+$h4-big: 28px !default;
+$h4-lg: 24px !default;
+$h4-md: 19px !default;
+$h4-sm: 16px !default;
+$h4-xs: 15px !default;
+/* h5 */
+$h5: 24px !default;
+$h5-big: 24px !default;
+$h5-lg: 22px !default;
+$h5-md: 18px !default;
+$h5-sm: 16px !default;
+$h5-xs: 16px !default;
+/* h6 */
+$h6: 20px !default;
+$h6-big: 20px !default;
+$h6-lg: 18px !default;
+$h6-md: 16px !default;
+$h6-sm: 15px !default;
+$h6-xs: 15px !default;
+
+/* base */
+$base: 16px !default;
+$base-lg: 16px !default;
+$base-md: 15px !default;
+$base-sm: 14px !default;
+
+/* font-family */
+
+$family-base:  'Poppins', 'sans-serif' !default;
+$family-title:  'Montserrat', 'sans-serif'!default;
+
+/* breakpoints */
+$screen-big-min: 1400px !default;
+$screen-lg-min: 1200px !default;
+$screen-md-min: 992px !default;
+$screen-sm-min: 768px !default;
+$screen-xs-min: 576px !default;
+$screen-xss-min: 500px !default;
