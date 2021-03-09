@@ -18,7 +18,7 @@ else { print ' class="inner_page" '; }?>>
 
 	<div id="root">
 		<div class="app">
-			<div class="app_main">
+			<div class="app_main"> 
 
 
 

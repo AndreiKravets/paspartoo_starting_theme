@@ -1,4 +1,4 @@
-let theme_name = 'starting_theme';
+let theme_name = 'paspartoo_starting_theme';
 let preprocessor = 'scss',
 	baseDir      = 'wp-content/themes/'+ theme_name;
 let paths = {
