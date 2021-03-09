@@ -30,7 +30,7 @@ else { print ' class="inner_page" '; }?>>
 									<div class="col-auto header_logo">
                                         <?php if ( !is_front_page()) { print '<a href="'.get_home_url().'">'; dynamic_sidebar('header_logo'); print '</a>'; }
                                         else {
-                                            dynamic_sidebar('header_logo_home');
+                                            dynamic_sidebar('header_logo');
                                         }
                                         ?>
 									</div>

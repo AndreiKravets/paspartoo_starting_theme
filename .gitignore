@@ -3,7 +3,7 @@
 # dependencies
 /node_modules
 /.idea
-wp-config.php
+/wp-config.php
 # misc
 .DS_Store
 .env.local

@@ -114,22 +114,6 @@ function inspiry_theme_sidebars() {
 	                         'before_title'  => '',
 	                         'after_title'   => ''
 	) );
-    register_sidebar( array( 'name'          => __( 'Header logo home', 'themename' ),
-        'id'            => 'header_logo_home',
-        'description'   => __( 'logo', 'themename' ),
-        'before_widget' => '',
-        'after_widget'  => '',
-        'before_title'  => '',
-        'after_title'   => ''
-    ) );
-    register_sidebar( array( 'name'          => __( 'Header logo about', 'themename' ),
-        'id'            => 'header_logo_about',
-        'description'   => __( 'logo', 'themename' ),
-        'before_widget' => '',
-        'after_widget'  => '',
-        'before_title'  => '',
-        'after_title'   => ''
-    ) );
 	register_sidebar( array( 'name'          => __( 'Header Call Us', 'themename' ),
 	                         'id'            => 'header_call',
 	                         'description'   => __( 'Header Call Us', 'themename' ),
@@ -141,22 +125,6 @@ function inspiry_theme_sidebars() {
 	register_sidebar( array( 'name'          => __( 'Footer logo', 'themename' ),
 	                         'id'            => 'footer_logo',
 	                         'description'   => __( 'Footer logo', 'themename' ),
-	                         'before_widget' => '',
-	                         'after_widget'  => '',
-	                         'before_title'  => '',
-	                         'after_title'   => ''
-	) );
-	register_sidebar( array( 'name'          => __( 'Footer logo white', 'themename' ),
-	                         'id'            => 'footer_logo_white',
-	                         'description'   => __( 'Footer logo white', 'themename' ),
-	                         'before_widget' => '',
-	                         'after_widget'  => '',
-	                         'before_title'  => '',
-	                         'after_title'   => ''
-	) );
-	register_sidebar( array( 'name'          => __( 'Footer social', 'themename' ),
-	                         'id'            => 'footer_social',
-	                         'description'   => __( 'Footer social', 'themename' ),
 	                         'before_widget' => '',
 	                         'after_widget'  => '',
 	                         'before_title'  => '',
@@ -193,22 +161,6 @@ function inspiry_theme_sidebars() {
                               'after_widget'  => '',
                               'before_title'  => '',
                               'after_title'   => ''
-    ) );
-    register_sidebar( array( 'name'          => __( 'Get in Touch', 'themename' ),
-        'id'            => 'get_in_touch',
-        'description'   => __( '', 'themename' ),
-        'before_widget' => '',
-        'after_widget'  => '',
-        'before_title'  => '',
-        'after_title'   => ''
-    ) );
-    register_sidebar( array( 'name'          => __( 'Get in Touch form', 'themename' ),
-        'id'            => 'get_in_touch_form',
-        'description'   => __( '', 'themename' ),
-        'before_widget' => '',
-        'after_widget'  => '',
-        'before_title'  => '',
-        'after_title'   => ''
     ) );
 }
 
@@ -330,177 +282,3 @@ function pagination( $pages = '', $range = 4 ) {
 }
 
 
-
-
-
-$post_type_labels = array(
-    'name' => __('Our Work', 'themename'),
-    'singular_name' => __('Our Work', 'themename'),
-    'add_new' => __('Add New', 'themename'),
-    'add_new_item' => __('Add New', 'themename'),
-    'edit_item' => __('Edit', 'themename'),
-    'new_item' => __('New', 'themename'),
-    'view_item' => __('View', 'themename'),
-    'search_items' => __('Search', 'themename'),
-    'not_found' => __('No found', 'themename'),
-    'parent_item_colon' => '',
-);
-$description = get_option('theme_custom_description');
-$post_type_args = array(
-    'labels' => apply_filters('inspiry_property_post_type_labels', $post_type_labels),
-    'public' => true,
-    'publicly_queryable' => true,
-    'show_ui' => true,
-    'query_var' => true,
-    'has_archive' => true,
-    'capability_type' => 'post',
-    'hierarchical' => true,
-    'menu_icon' => 'dashicons-layout',
-    'menu_position' => 5,
-    'description' => $description,
-    'supports' => array('title', 'thumbnail', 'editor',  'page-attributes'),
-    'rewrite' => array(
-        'slug' => apply_filters('inspiry_property_slug',  'our_works'),
-    ),
-);
-
-register_post_type('our_works', $post_type_args);
-
-
-
-
-function home_our_work_func()
-{
-    $our_work = '<div class="home_our_work_cont">
-	<div class="row">';
-    global $wp_query;
-    $temp_query = $wp_query;
-    $args1 = array('post_type' => 'our_works', 'posts_per_page' => -1, 'post_status' => 'publish', 'orderby' => 'menu_order', 'order' => 'asc');
-
-    $posts = new WP_Query($args1);
-    if ($posts->have_posts()) {
-
-        ?>
-        <?php
-        $i = 1;
-        while ($posts->have_posts()) {
-
-            $posts->the_post();
-            $home_thumbnails = get_field("work_home_thumbnails");
-            $work_title_logo = get_field('work_title_logo');
-            if ($home_thumbnails == true) {
-                if ($i == 1) {
-                    $our_work .= '<div class="col-md-6 col-sm-12 col-12 home_work_block_1">
-<a href="' . get_home_url() . '/our-work/#our_work_content_' . get_the_ID() . '">
-<div class="home_work_img" style="background-image:url(' . $home_thumbnails . ')">	
-<div class="work_title_logo_h3"> <img src=' . $work_title_logo . ' alt="" ></div>
-<img src="/wp-content/uploads/2021/02/Group-23.svg" alt="">
-		  </div></a>
-		</div><div class="col-md-6 col-sm-12 col-12 home_work_block_4">';
-                    $i++;
-                }
-                else {
-                    $our_work .= '  <a href="' . get_home_url() . '/our-work/#our_work_content_' . get_the_ID() . '">
-<div class="home_work_img" style="background-image:url(' . $home_thumbnails . ')">	
-
-<div class="work_title_logo_h3"> <img src=' . $work_title_logo . ' alt="" ></div>
-<img src="/wp-content/uploads/2021/02/Group-23.svg" alt="">
-		  </div></a>';
-                    $i++;
-
-                }
-            }
-        }
-        $our_work .= '</div></div></div>';
-        wp_reset_postdata();
-        $wp_query = NULL;
-        $wp_query = $temp_query;
-
-        return $our_work;
-
-    }
-}
-
-
-add_shortcode('home_our_work', 'home_our_work_func');
-
-// end home_our_work
-
-
-
-
-
-function show_our_work_func()
-{
-    $show_our_work = 	'<div class="container">
-	<div class="row">';
-    global $wp_query;
-    $temp_query = $wp_query;
-    $args2 = array('post_type' => 'our_works', 'posts_per_page' => -1, 'post_status' => 'publish', 'orderby' => 'menu_order', 'order' => 'asc');
-
-    $posts = new WP_Query($args2);
-
-    if ($posts->have_posts()) {
-        while ($posts->have_posts()) {
-            $posts->the_post();
-            $work_thumbnails = get_field("work_thumbnails");
-            $work_layout = get_field("work_layout");
-            $work_title_logo = get_field("work_title_logo");
-
-            $show_our_work .= '<div class=" '. $work_layout .' col-md-6 show_our_work_content">';
-            $show_our_work .= '<a href="' .get_the_permalink() . '"><div class="show_our_work_item" id="our_work_content_'.get_the_ID().'"style="background-image:url(' . $work_thumbnails . ')">
-                                        <div class="show_our_work_img_div"><img src="' . $work_title_logo . '" class="show_our_work_img" alt=""> </div>
-                                       <img src="/wp-content/uploads/2021/02/Group-23.svg" alt="" class="work_arrow">
-                                       
-                                      </div></a></div>';
-
-        }
-
-        $show_our_work .= '</div></div>';
-
-        wp_reset_postdata();
-        $wp_query = NULL;
-        $wp_query = $temp_query;
-
-        return $show_our_work;
-    }
-}
-
-
-add_shortcode('show_our_work', 'show_our_work_func');
-
-////////////////////////////////////////////////////////////
-
-
-function show_our_work_slider_func()
-{
-    $show_our_work = 	'<div class="work_slider_section">';
-    global $wp_query;
-    $temp_query = $wp_query;
-    $args2 = array('post_type' => 'our_works', 'posts_per_page' => -1, 'post_status' => 'publish', 'orderby' => 'menu_order', 'order' => 'asc');
-
-    $posts = new WP_Query($args2);
-
-    if ($posts->have_posts()) {
-        while ($posts->have_posts()) {
-            $posts->the_post();
-
-            $work_title_logo = get_field("work_title_logo");
-
-            $show_our_work .= '<div class="show_our_work_slider_item">
-                     <img src="' . $work_title_logo . '" class="show_our_work_img" alt=""></div>';
-
-        }
-
-        $show_our_work .= '</div>';
-
-        wp_reset_postdata();
-        $wp_query = NULL;
-        $wp_query = $temp_query;
-
-        return $show_our_work;
-    }
-}
-
-
-add_shortcode('show_our_work_slider', 'show_our_work_slider_func');

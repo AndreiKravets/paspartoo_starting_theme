@@ -73,10 +73,6 @@
 </div>
 </div>
 
-<div id="header_scedule">
-    <div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/lolita1/30-minute-intro-call?embed=true"><script type="text/javascript" async src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js">
-        </script></div>
-</div>
 <div class="submit_perent">
     <div class="submit_popup_con">
     </div>
