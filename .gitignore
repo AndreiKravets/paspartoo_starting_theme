@@ -5,7 +5,6 @@
 /.idea
 wp-config.php
 # misc
-wp-config.php
 .DS_Store
 .env.local
 .env.development.local
