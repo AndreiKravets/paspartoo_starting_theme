@@ -41,7 +41,6 @@ $bg_img = get_the_post_thumbnail_url($blog_post_id, 'full');
                                                 <h4><?php echo $title; ?></h4>
                                             <h5 class="press_item_date"><?php echo get_the_date(); ?></h5>
                                         </div>
-                                        <img src="/wp-content/uploads/2021/02/Group-23.svg" alt="">
                                     </a>
 
                                 </div>
@@ -58,7 +57,6 @@ $bg_img = get_the_post_thumbnail_url($blog_post_id, 'full');
                                             <h4><?php echo $title; ?></h4>
                                             <h5 class="press_item_date"><?php echo get_the_date(); ?></h5>
                                         </div>
-                                        <img src="/wp-content/uploads/2021/02/Group-23.svg" alt="">
                                     </a>
 
                                 </div>

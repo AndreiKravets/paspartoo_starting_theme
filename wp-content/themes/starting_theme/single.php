@@ -18,4 +18,4 @@ get_header();
 
     </div>
 
-<?php get_footer('blog');
+<?php get_footer();
