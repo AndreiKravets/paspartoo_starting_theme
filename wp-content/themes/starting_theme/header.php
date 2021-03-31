@@ -18,7 +18,7 @@ else { print ' class="inner_page" '; }?>>
 
 	<div id="root">
 		<div class="app">
-			<div class="app_main">
+			<div class="app_main"> 
 
 
 
@@ -48,8 +48,8 @@ else { print ' class="inner_page" '; }?>>
 										}
 										?>
 									</div>
-                                    <div class="col-auto header_call">
-                                        <?php dynamic_sidebar('header_call'); ?>
+                                    <div class="col-auto header_btn">
+                                        <?php dynamic_sidebar('header_button'); ?>
                                     </div>
                                 </div>
 							</div>
@@ -80,18 +80,14 @@ else { print ' class="inner_page" '; }?>>
                                   }
                                   ?>
                               </div>
-                              <div class="col-auto header_call">
-                                  <?php dynamic_sidebar('header_call'); ?>
+                              <div class="col-auto header_btn">
+                                  <?php dynamic_sidebar('header_button'); ?>
                               </div>
 
                              </div>
 
                           </div>
                       </div>
-
-
-
-
 
 
 					<div class="mobile_menu ">
@@ -106,7 +102,7 @@ else { print ' class="inner_page" '; }?>>
 							));
 						}
 						?>
-                        <?php dynamic_sidebar('header_call'); ?>
+                        <?php dynamic_sidebar('header_button'); ?>
 
                     </div>
 					<div class="bg "></div>

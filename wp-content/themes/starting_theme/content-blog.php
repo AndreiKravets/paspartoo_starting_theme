@@ -1,14 +1,10 @@
 <?php
-$blog_post_id =get_option('page_for_posts');
-$blog_post=get_post($blog_post_id);
-$bg_img = get_the_post_thumbnail_url($blog_post_id, 'full');
 ?>
 <section class="blog_page_section">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1><?php echo $blog_post->post_title; ?></h1>
-                Tactical insights for growing brands.
+                <h1>Blog</h1>
             </div>
         </div>
     </div>
@@ -16,8 +12,6 @@ $bg_img = get_the_post_thumbnail_url($blog_post_id, 'full');
 
 
 <div class="container content_blog">
-    <div class="row row_all_news">
-        <div class="col-12">
             <div class="row news_block">
 
                 <?php
@@ -35,12 +29,13 @@ $bg_img = get_the_post_thumbnail_url($blog_post_id, 'full');
                         $excerpt    = get_the_excerpt( $id );
                         if ($i == 1) { ?>
                             <div class="col-md-12">
-                                <div class="press_item" style="background-image: url(<?php echo $image;?>)">
+                                <div class="press_item">
                                     <a href="<?php echo $permalink; ?>" class="press_item_img">
                                         <div class="press_item_wrapper">
                                                 <h4><?php echo $title; ?></h4>
                                             <h5 class="press_item_date"><?php echo get_the_date(); ?></h5>
                                         </div>
+                                        <img src="<?php echo $image;?>" alt="<?php echo $title; ?>">
                                     </a>
 
                                 </div>
@@ -51,12 +46,13 @@ $bg_img = get_the_post_thumbnail_url($blog_post_id, 'full');
                             ?>
 
                             <div class="col-md-6">
-                                <div class="press_item" style="background-image: url(<?php echo $image;?>)">
+                                <div class="press_item">
                                     <a href="<?php echo $permalink; ?>" class="press_item_img">
                                         <div class="press_item_wrapper">
                                             <h4><?php echo $title; ?></h4>
                                             <h5 class="press_item_date"><?php echo get_the_date(); ?></h5>
                                         </div>
+                                        <img src="<?php echo $image;?>" alt="<?php echo $title; ?>">
                                     </a>
 
                                 </div>
@@ -68,10 +64,6 @@ $bg_img = get_the_post_thumbnail_url($blog_post_id, 'full');
                 }
                 ?>
 
-
-
-            </div>
-        </div>
     </div>
     <div class="row"><div class="col-md-12 press_pagination">
             <?php

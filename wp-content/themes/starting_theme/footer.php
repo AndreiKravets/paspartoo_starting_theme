@@ -2,32 +2,6 @@
 <footer>
     <div class="container-fluid footer_fluid footer_top_fluid">
 
-
-
-        <div class="home_get_in_touch_section">
-            <div class="container">
-                <div class="row wpb_row">
-                <div class="vc_col-sm-12">
-                    <div class="vc_column-inner">
-                    <div class="row wpb_row">
-                    <div class="vc_col-sm-4">
-            <?php dynamic_sidebar('get_in_touch'); ?>
-                    </div>
-            <div class="vc_col-sm-8">
-                <div class="wpb_raw_code">
-            <?php dynamic_sidebar('get_in_touch_form'); ?>
-                    </div>
-            </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                <img src="<?php print get_home_url();?>/wp-content/uploads/2021/02/Group-23.svg" alt="">
-            </div>
-        </div>
-
-
-
         <div class="container">
             <div class="row">
 
@@ -48,19 +22,31 @@
 					?>
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12 footer_right">
-                    <?php dynamic_sidebar('footer_social'); ?>
+                    <?php
+                    if (has_nav_menu('social')) {
+                        wp_nav_menu(array(
+                            'theme_location' 	=> 'social',
+                            'menu_class' 	 	=> 'footer_social',
+                            'container'		 	=> '',
+                            'container_class' 	=> '',
+                            'walker' 			=> new Main_Submenu_Class()
+                        ));
+                    }
+                    ?>
                 </div>
             </div>
         </div>
     </div>
-        <div class="container-fluid footer_fluid">
+        <div class="container-fluid footer_fluid footer_bottom_fluid">
         <div class="container">
-            <div class="row footer_copyright privacy_policy">
-                <div class="col-lg-4 col-md-12"><?php dynamic_sidebar( 'footer_privacy' ); ?></div>
-                <div class="col-lg-4 col-md-6 footer_phone">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 footer_bottom_left">
+                    <?php dynamic_sidebar( 'footer_copyright' ); ?>
+                </div>
+                <div class="col-lg-4 col-md-6 footer_bottom_center">
                     <?php dynamic_sidebar( 'footer_phone' ); ?>
                 </div>
-                <div class="col-lg-4 col-md-6 footer_addres">
+                <div class="col-lg-4 col-md-6 footer_bottom_right">
                     <?php dynamic_sidebar( 'footer_addres' ); ?>
                 </div>
 
