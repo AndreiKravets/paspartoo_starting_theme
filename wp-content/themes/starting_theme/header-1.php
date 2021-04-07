@@ -26,7 +26,7 @@ else { print ' class="inner_page" '; }?>>
 					<div class="header_fluid">
                         <div class="container">
 								<div class="row head_menu valign-wrapper">
-
+                                    <button id="hamb_button" class="hamburger hamburger--collapse" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button>
 									<div class="col-auto header_logo">
                                         <?php if ( !is_front_page()) { print '<a href="'.get_home_url().'">'; dynamic_sidebar('header_logo'); print '</a>'; }
                                         else {
@@ -34,8 +34,7 @@ else { print ' class="inner_page" '; }?>>
                                         }
                                         ?>
 									</div>
-									<div class="col head_burger">
-										<button id="hamb_button" class="hamburger hamburger--collapse" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button>
+									<div class="col head_menu_col">
 										<?php
 										if (has_nav_menu('header_menu')) {
 											wp_nav_menu(array(

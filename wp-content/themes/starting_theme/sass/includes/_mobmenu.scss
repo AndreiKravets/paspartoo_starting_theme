@@ -1,23 +1,31 @@
 .mobile_menu {
   position: fixed;
-  width: 85%;
+  width: 100%;
   min-width: 270px;
   background-color: $brand-primary;
     opacity: 0.94;
   height: 100%;
-  top: 0;
+  left: 0;
   bottom: 0;
-  left: -4000px;
-  -webkit-transition: left ease 250ms;
-  -o-transition: left ease 250ms;
-  transition: left ease 250ms;
-  z-index: 99999;
-  padding: 50px 0px 0 0px;
+  top: -100vh;
+  transition: top ease 450ms;
+  //transition: top cubic-bezier(0, 0, 0.99, 0.99) 350ms;
+  z-index: 999;
+  padding: 70px 0px 0 0px;
   overflow-y: auto;
-
+  &.active {
+    display: block;
+    top: 0px;
+    transition: top ease 450ms;
+    //transition: top cubic-bezier(0, 0, 0.99, 0.99) 350ms;
+  }
 .textwidget {
-  padding: 20px;
+  padding: 0 20px;
   display: none;
+  margin-top: 80px;
+  //position: absolute;
+  //width: 100%;
+  //bottom: 25px;
   @include _media-xss-down() {
     display: block;
   }
@@ -39,28 +47,16 @@
   }
 }
 
-  &.active {
-    display: block;
-    left: 0;
-    -webkit-transition: left ease 250ms;
-    -o-transition: left ease 250ms;
-    transition: left ease 250ms;
 
-  }
   .parent{
-    //border-bottom: 0.02px solid #6c6c6c;
-    //margin-bottom: 5px;
-    //padding-bottom: 5px;
-    padding: 5px 0;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
   }
   ul {
-    //min-height: 75%;
     margin-bottom: 20px;
-    @include _ul_clear;
+    border-top: 3px solid #E3E3E3;
     .current_page_item{
-      margin: 0;
-      padding: 0 15px;
-      border-bottom: 0px solid;
       a{
         color: $white;
         font-weight: 600;
@@ -70,24 +66,24 @@
       display: block;
       position: relative;
       line-height: 35px;
-      margin: 0 15px;
-      //border-bottom: 1px solid #bdbdbd;
+      border-bottom: 1px solid #E3E3E3;
       a {
-        padding: 0 !important;
+        padding: 0 15px !important;
         color: $white;
         font-size: 16px;
         display: inline-block;
-        width: 80%;
+        width: 100%;
       }
       .sub-menu {
         display: none;
+        border-top: 0px solid;
         li{
           border: none;
           .parent{
+            padding: 0;
             a {
-              padding: 0 !important;
+              padding: 0 30px !important;
               font-size: 16px;
-              text-transform: capitalize;
             }
           }
         }
@@ -98,10 +94,9 @@
           color: #b8b8b8;
           font-size: 20px;
           float: right;
-          //width: 32px;
           width: 100%;
           height: 32px;
-          position: absolute;
+          //position: absolute;
           line-height: 24px;
           display: block;
           -webkit-border-radius: 4px;
@@ -113,24 +108,57 @@
           right: 0;
           text-align: right;
           top: 5px;
-          padding-right: 5px;
+          padding-right: 20px;
           &:focus {
             background: $white;
             color: $brand-primary;
           }
           i{
-            font-size: 20px;
+            font-size: 15px;
+            transition: all .3s ease-in-out;
           }
         }
         &.active {
           span {
-            i:before {
-              content: "\f078";
+            i{
+              transition: all .3s ease-in-out;
+              transform: rotate(-90deg);
             }
+            //i:before {
+            //  content: "\f078";
+            //}
           }
-          .sub-menu {
-            display: block;
-          }
+        }
+      }
+    }
+  }
+
+  .mob_menu_social{
+    ul{
+      display: flex;
+      justify-content: center;
+      border: none;
+      li{
+        border: none;
+        a{
+          color: #79797f;
+          width: 34px;
+          height: 34px;
+          border-radius: 34px;
+          margin: 5px;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          background-color: #fff;
+          -webkit-box-shadow: 0 0 0 0 #57575a;
+          box-shadow: 0 0 0 0 #57575a;
+          font-size: 18px;
         }
       }
     }

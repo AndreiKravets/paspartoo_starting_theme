@@ -11,9 +11,10 @@
     width: 100%;
     z-index: 9999;
     @include _media-md-down() {
+      position: fixed;
       top: 0px;
       width: 100%;
-      z-index: 999 !important;
+      z-index: 9999 !important;
       padding: 0px;
     }
     @include _media-small-down() {
@@ -88,7 +89,7 @@
       }
 
 
-      .head_burger {
+      .head_menu_col {
         text-align: center;
 
 
@@ -275,6 +276,8 @@
 
   #hamb_button {
     display: none;
+    position: absolute;
+    right: 5px;
     @include _media-md-down() {
       display: block;
       z-index: 999999;
