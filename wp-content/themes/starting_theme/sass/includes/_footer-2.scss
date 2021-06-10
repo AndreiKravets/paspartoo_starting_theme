@@ -1,4 +1,4 @@
-.footer_1 {
+.footer_2 {
   padding-top: 70px;
   background-color: $brand-primary;
   color: white;
@@ -16,7 +16,6 @@ a{
 }
 
   .footer_top_container{
-    border-bottom: 1px solid #d4d4d4;
     padding-bottom: 30px;
 
   .footer_left {
@@ -25,7 +24,7 @@ a{
       width: 100%;
       max-width: 250px !important;
       object-fit: contain;
-      margin-bottom: 13px;
+      margin-bottom: 30px;
       }
     @include _media-lg-down() {
       max-width: 100%;
@@ -43,35 +42,32 @@ a{
   }
 
   .footer_center {
+    h1,h2,h3,h4,h5,h6{
+      color: white;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
     @include _media-xs-down() {
       width: 50%;
       margin-bottom: 20px;
     }
       ul {
+        margin-bottom: 20px;
+        li{
+          padding-bottom: 10px;
+        }
       a {
         color: $white;
-        line-height: 2.2;
         text-transform: capitalize;
         &:hover {
           color: $grey100;
         }
       }
     }
-    .footer_left_menu{
+    .footer_left_menu, .footer_right_menu, .footer_center_menu{
       @include _media-md-down() {
-        display: flex;
-        justify-content: space-evenly;
-        margin-bottom: 20px;
-      }
-      @include _media-xs-down() {
-        display: block;
-        margin-bottom: 0px;
-      }
-    }
-    .footer_right_menu{
-      @include _media-md-down() {
-        display: flex;
-        justify-content: space-evenly;
+        //display: flex;
+        //justify-content: space-evenly;
         margin-bottom: 20px;
       }
       @include _media-xs-down() {
@@ -81,27 +77,30 @@ a{
     }
   }
 
-  .footer_right {
-h6,h5,h4,h3{
+  .footer_newsletter {
+h6,h5,h4,h3,h2{
   color: white;
   margin-bottom: 2px;
-  font-weight: 500;
-  i{
-    margin-right: 7px;
-    font-size: 0.9em;
-    .fa-phone{
-      transform: rotate(180deg);
-    }
+  font-weight: 600;
   }
+input{
+width: 100%;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 5px;
+  border: unset;
+  margin-top: 20px;
 }
-    a{
-      margin-bottom: 10px;
-      display: inline-block;
-      @include _media-md-down() {
-        margin-bottom: 0;
-      }
-      }
-  }
+    .subsvribe_btn{
+      justify-content: center;
+      text-transform: uppercase;
+      color: white;
+      background-color: $brand-hover;
+
+    }
+    }
   }
 
 .footer_bottom_container{
@@ -129,23 +128,28 @@ h6,h5,h4,h3{
       display: block;
       order: 1;
     }
-    .footer_social {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      @include _media-xs-down() {
+
+  }
+}
+  .footer_social {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    @include _media-lg-down() {
       justify-content: center;
-      }
-      a {
-        color: $white;
-        margin: 10px;
-        display: flex;
-        font-size: 18px;
-        &:hover {
-          color: $grey100;
-        }
+    }
+    a {
+      color: $white;
+      margin: 10px;
+      display: flex;
+      font-size: 18px;
+      &:hover {
+        color: $grey100;
       }
     }
   }
-}
+
+  .footer_bottom_fluid{
+    background-color: white;
+  }
 }

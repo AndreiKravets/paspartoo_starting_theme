@@ -62,7 +62,7 @@ get_header();
                 ?>
 
     </div>
-                    <div class="row" id="row_posts"></div>
+                    <div class="row news_block_1" id="row_posts"></div>
                     <?php
 
                     if ($query->max_num_pages > 1) {

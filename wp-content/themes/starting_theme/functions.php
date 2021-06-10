@@ -18,6 +18,10 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 
 }
 
+add_action( 'vc_before_init', 'vc_before_init_actions' );
+function vc_before_init_actions() {
+    vc_set_shortcodes_templates_dir( get_template_directory() . '/vc_templates' );
+}
 
 add_filter( 'the_generator', '__return_empty_string' );
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -80,7 +84,7 @@ function disable_wp_emojis_in_tinymce( $plugins ) {
 function load_theme_styles() {
 	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), null, 'all' );
 	wp_register_style( 'fontawesome', get_template_directory_uri() . '/css/fontawesome.min.css', array(), null, 'all' );
-	wp_register_style( 'style', get_template_directory_uri() . '/style.css', array(), time(), 'all' );;
+	wp_register_style( 'style', get_template_directory_uri() . '/style.css', array(), time(), 'all' );
 
 	wp_enqueue_style( 'bootstrap' );
 	wp_enqueue_style( 'fontawesome' );
@@ -88,10 +92,9 @@ function load_theme_styles() {
 	$js_directory_uri = get_template_directory_uri() . '/js/';
 	wp_register_script( 'slick', $js_directory_uri . 'slick.js', array( 'jquery' ), null );
 	wp_register_script( 'script', $js_directory_uri . 'script.js', array( 'jquery' ), null );
-    wp_register_script( 'valid', $js_directory_uri . 'valid.js', array( 'jquery' ), null );
-    wp_enqueue_script( 'slick' );
+
+	wp_enqueue_script( 'slick' );
 	wp_enqueue_script( 'script' );
-	wp_enqueue_script( 'valid' );
 }
 
 add_action( 'wp_enqueue_scripts', 'load_theme_styles', 100 );
@@ -101,16 +104,18 @@ add_action( 'wp_enqueue_scripts', 'load_theme_styles', 100 );
 function menulang_setup() {
 	load_theme_textdomain( 'themename', get_template_directory() . '/languages' );
 	register_nav_menus( array( 'header_menu' => __( 'Menu', 'themename' ) ) );
+	register_nav_menus( array( 'header_left_menu' => __( 'header left menu', 'themename' ) ) );
+	register_nav_menus( array( 'header_right_menu' => __( 'header right menu', 'themename' ) ) );
 	register_nav_menus( array( 'footer_menu' => __( 'footer menu', 'themename' ) ) );
 	register_nav_menus( array( 'footer_left_menu' => __( 'footer left menu', 'themename' ) ) );
 	register_nav_menus( array( 'footer_center_menu' => __( 'footer center menu', 'themename' ) ) );
 	register_nav_menus( array( 'footer_right_menu' => __( 'footer right menu', 'themename' ) ) );
-	register_nav_menus( array( 'social' => __( 'Social link', 'themename' ) ) );
+	register_nav_menus( array( 'social' => __( 'social link', 'themename' ) ) );
 }
 
 add_action( 'after_setup_theme', 'menulang_setup' );
 
-function inspiry_theme_sidebars() {
+function theme_sidebars() {
 	register_sidebar( array( 'name'          => __( 'Header logo', 'themename' ),
 	                         'id'            => 'header_logo',
 	                         'description'   => __( 'Header logo', 'themename' ),
@@ -193,7 +198,7 @@ function inspiry_theme_sidebars() {
     ) );
 }
 
-add_action( 'widgets_init', 'inspiry_theme_sidebars' );
+add_action( 'widgets_init', 'theme_sidebars' );
 
 // TODO: excerpt length
 function new_excerpt_length($length) {
@@ -358,14 +363,15 @@ function load_posts () {
             <div class="col-lg-4 col-md-6">
                 <div class="press_item_1">
                     <a href="<?php echo $permalink; ?>" class="press_item_img_1">
-                        <img src="<?php echo $image;?>" alt="<?php echo $title; ?>">
+                        <div class="press_item_img_1">
+                            <img src="<?php echo $image;?>" alt="<?php echo $title; ?>">
+                        </div>
                         <div class="press_item_wrapper_1">
                             <span class="press_item_date_1"><?php echo $date; ?></span>
                             <h4><?php echo $title; ?></h4>
-                            <h5 class="press_item_date_1"><?php echo get_the_date(); ?></h5>
                             <p class="press_item_excerpt_1"><?php echo $excerpt; ?></p>
                             <h6 class="press_item_read_more_1">
-                                Read More</h6>
+                                Read More </h6>
                         </div>
                     </a>
 
@@ -376,9 +382,6 @@ function load_posts () {
         die();
     }
 
-    ?>
-
-    <?php
 }
 add_action('wp_ajax_load_posts', 'load_posts');
 add_action('wp_ajax_nopriv_load_posts', 'load_posts');
@@ -493,6 +496,9 @@ add_filter('excerpt_more', 'new_excerpt_more');
 //File connection
 require_once 'reviews-slider.php';
 require_once 'short_code_our-works.php';
+require_once 'fullscreen_slider.php';
+require_once 'short_code_faq.php';
+require_once 'short_code_faq_category.php';
 
 // TODO: Short code for posts
 //Short code for  posts on different pages
@@ -503,3 +509,25 @@ function shortcode_func() {
 add_shortcode( 'press_list', 'shortcode_func' );
 
 
+
+
+
+function youtube_func($atts)
+{
+    $params = shortcode_atts(array(
+        'youtube_link' => 'https://www.youtube.com/watch?v=PkkV1vLHUvQ',
+        'img_link' => '/wp-content/uploads/2021/04/privte-pilot-female-1.png'),
+        $atts);
+    $vid = '<div class="video_container">';
+    $vid .= '
+    <div class="video_wrapper">
+    <a data-fancybox href="' . $params['youtube_link'] . '">
+    <div class="video_btn"><img src="/wp-content/uploads/2021/04/Group-3790.png" alt="btn"></div>
+    <img class="img_link_v" src="' . $params['img_link'] . '" alt="video">
+    </a>
+    </div>
+    ';
+    $vid .= '</div>';
+    return $vid;
+}
+add_shortcode('youtube_video', 'youtube_func');

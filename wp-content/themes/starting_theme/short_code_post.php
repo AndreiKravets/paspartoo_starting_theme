@@ -17,7 +17,7 @@
     add_filter('excerpt_length', 'new_excerpt_length_2');
 
     if ( $query->have_posts() ) : ?>
-        <div class="container home_blog_container">
+        <div class="home_blog_container">
         <div class="row">
             
             <?php while ( $query->have_posts() ) : $query->the_post();

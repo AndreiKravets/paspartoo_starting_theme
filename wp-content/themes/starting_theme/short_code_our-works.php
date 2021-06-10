@@ -49,7 +49,6 @@ function short_code_output_post()
 
 
 if ( $posts->have_posts() ) : ?>
-    <div class="container">
     <div class="row">
         <?php while ( $posts->have_posts() ) : $posts->the_post();
             $id         = get_the_ID();
@@ -80,22 +79,15 @@ if ( $posts->have_posts() ) : ?>
         <?php
         endwhile; ?>
     </div>
-    </div>
 
 <?php
 endif;
 wp_reset_postdata();
     $wp_query = NULL;
     $wp_query = $temp_query;
-
 }
 add_shortcode('our_works_post', 'short_code_output_post');
 
-?>
-
-
-
-<?php
 function short_code_single_our_work()
 {
 

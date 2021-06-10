@@ -3,14 +3,36 @@
 }
 
 
+.validation_error{
+  border: none !important;
+  color: $red !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+
+#root .gform_wrapper .gform_body .gform_fields  .gfield_error{
+  border: none !important;
+  background-color: unset !important;
+  padding-top: 0;
+  max-width: 100% !important;
+  label{
+    color: $brand-primary !important;
+  }
+}
+
+#root .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container, .gform_wrapper li.gfield.gfield_error.gfield_contains_required label.gfield_label {
+  margin-top: 0;
+}
+
+
+
 .form_block {
-  height: 800px;
   display: flex;
   margin: auto;
   align-items: center;
   width: 100%;
   max-width: 650px;
-  padding-left: 40px;
   @include _media-big-down() {max-width: 570px;}
   @include _media-lg-down() {max-width: 80%;
   margin-left: 10%;
@@ -22,10 +44,18 @@
   height: 700px;
     padding-top: 35px !important;
     padding-bottom: 60px;
-    .vc_column-inner{
-      //padding: 0 !important;
     }
+
+  .name_first{
+    label{
+      display: none !important;
     }
+  }
+
+  .gform_description{
+    padding-left: 15px!important;
+    padding-right: 15px!important;
+  }
 .s12{
   width: 100%;
 }
@@ -33,16 +63,8 @@
     text-align: center;
     font-size: $h3 !important;
     font-weight: 400 !important;
-    height: 60px;
     @include _media-xs-down() {
       font-size: $h3-sm !important;
-    }
-
-    h3 {
-      font-weight: 600 !important;
-      color: white;
-      text-align: left;
-      text-transform: capitalize;
     }
   }
 .ginput_container_select{
@@ -52,8 +74,6 @@
 
   .gform_title {
     height: 100%;
-    //padding-top: 30px;
-    //text-transform: uppercase;
     font-size: $h2;
     color: $brand-primary;
     padding-left: 15px !important;
@@ -91,20 +111,21 @@
    li{
      padding-left: 15px !important;
      padding-right: 15px !important;
-     margin-top: 20px !important;
+     margin-top: 15px !important;
+     max-width: 100% !important;
    }
     select:focus {
       outline: 0px solid $grey50 !important;
     }
     input, select{
       width: 100% !important;
-      border: 1px solid white;
+      border: 1px solid $brand-primary;
      background:none;
       margin: 0 !important;
-      margin-top: 10px !important;
+      margin-top: 3px !important;
       height: 45px;
       padding-left: 15px !important;
-      color: white;
+      color: $brand-primary;
       border-radius: 5px !important;
       display: block;
       &:focus{
@@ -117,19 +138,20 @@
       color: $grey60;
     }
     input::placeholder {
-      color: white;
+      color: $brand-primary;
     }
     select::placeholder {
-      color: white;
+      color: $brand-primary;
     }
     textarea {
       //margin-top: 10px;
       padding-left: 15px !important;
       padding-right: 15px !important;
       width: 100%;
-      border: 1px solid white;
+      border: 1px solid $brand-primary;
+      margin-top: 3px !important;
      background: none;
-      color: white;
+      color: $brand-primary;
       height: 170px !important;
       border-radius: 5px !important;
       &:focus{
@@ -141,16 +163,13 @@
     }
 
     textarea::placeholder {
-      color: white;
+      color: $brand-primary;
     }
 
     label {
-      font-size: 13px !important;
-      letter-spacing: 1.1px;
+      font-size: 15px !important;
       color: $brand-primary;
       font-weight: 400 !important;
-      text-transform: uppercase;
-      display: none !important;
       @include _media-xs-down() {
         font-size: 14px !important;
       }
@@ -160,11 +179,6 @@
       margin-top: 0 !important;
     }
 
-    .ginput_complex {
-      label {
-        display: none !important;
-      }
-    }
     .ginput_container_checkbox{
       padding-left: 15px;
       input{
@@ -195,15 +209,15 @@
     .gform_button {
       padding: 0 !important;
       margin: 0 !important;
-      border: 1px solid white !important;
+      border: 1px solid $brand-primary !important;
       height: 50px;
       font-family: $family-title;
       font-size: 18px !important;
       font-weight: 400;
       line-height: 29px;
       text-align: center;
-      background-color: white !important;
-      color: $grey80 !important;
+      background-color: $brand-primary !important;
+      color: white !important;
       transition: 0.3s ease-out;
       font-weight: 600;
       @include _media-lg-down() {
@@ -339,10 +353,10 @@ cursor: pointer;
 
 
 .gform_confirmation_message {
-padding-left: 20px;
+  padding: 50px !important;
   h3, p {
     text-align: center;
-    color: $white;
+    color: $brand-primary;
   }
 }
 
@@ -431,7 +445,7 @@ padding-left: 20px;
 }
 
 .gform_confirmation_message{
-  color: white;
+  color: $brand-primary;
   font-size: 1.3em;
   padding-left: 0px;
 }

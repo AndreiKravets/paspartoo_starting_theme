@@ -41,7 +41,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-12 footer_bottom_left">
-                    <?php dynamic_sidebar( 'footer_copyright' ); ?>
+                 <?php dynamic_sidebar( 'footer_copyright' ); ?>
                 </div>
                 <div class="col-lg-4 col-md-6 footer_bottom_center">
                     <?php dynamic_sidebar( 'footer_phone' ); ?>
