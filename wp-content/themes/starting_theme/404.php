@@ -8,7 +8,7 @@ get_header();?>
             <h2>oh no! page not found</h2>
             <p>The page you're looking for isn't available.</p>
             <p>Try your search again or use the Go Home button below.</p>
-            <a href="<?php echo get_site_url(); ?>" class="light_btn">Go Home</a>
+            <a href="<?php echo get_site_url(); ?>" class="light_btn"> Go Home</a>
         </div>
         </div>
     </div>
